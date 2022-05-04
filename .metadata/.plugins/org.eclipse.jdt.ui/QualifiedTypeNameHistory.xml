@@ -22,8 +22,6 @@
     <fullyQualifiedTypeName name="java.util.Random"/>
     <fullyQualifiedTypeName name="collections.ArrayCase"/>
     <fullyQualifiedTypeName name="collections.VarargsCaseStudy"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="collections.ListCaseStudy"/>
     <fullyQualifiedTypeName name="java.util.HashSet"/>
     <fullyQualifiedTypeName name="collections.SetCaseStudy"/>
@@ -39,4 +37,13 @@
     <fullyQualifiedTypeName name="java.util.Map.Entry"/>
     <fullyQualifiedTypeName name="collections.MapCaseStudy"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="br.com.igorllampa.lambdastream.NumberComparator"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="java.util.Comparator"/>
+    <fullyQualifiedTypeName name="java.lang.FunctionalInterface"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+    <fullyQualifiedTypeName name="java.lang.Iterable"/>
+    <fullyQualifiedTypeName name="br.com.igorllampa.lambdastream.Car"/>
 </qualifiedTypeNameHistroy>
