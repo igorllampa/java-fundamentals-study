@@ -1,12 +1,18 @@
 package br.com.igorllampa.lambdastream;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Main {
 
+	private static final Map<String, Integer> PEOPLE = Map.of("pedro", 15, "maria", 20, "paulo", 25, "jorge", 10);
+	
 	public static void main(String[] args) {
 		
 		List<Integer> numbers = new ArrayList<>(List.of(5, 3, 4, 1, 2));
@@ -85,6 +91,51 @@ public class Main {
 			.peek(Car::addTax)
 			.forEach(System.out::println);
 		
+		System.out.println(get("josé"));//nao existe
+		
+		Optional<Integer> opt = get("pedro");
+		int idade = opt.orElse(0);
+		System.out.println(idade);
+		
+		int idade2 = opt.orElseThrow(() -> new IllegalArgumentException("Nome inexistente"));//Opcao 01
+		idade2 = opt.orElseThrow(IllegalArgumentException::new);//Opcao 02
+
+		opt = get("pedro2");
+		
+		opt.ifPresent(i -> System.out.println("A idade "+i+" foi encontrada!"));
+		opt.ifPresentOrElse(i -> System.out.println("A idade "+i+" foi encontrada!!"), 
+				           () -> System.out.println("Não encontrado"));
+		
+		int multi = 2;
+		IntStream.range(1, 21)
+			.map(i -> i * 2)
+			.forEach(System.out::println);
+		
+		int[] array = List.of(3, 2, 11, 5, 1, 2, 10).stream().mapToInt(i -> i.intValue()).toArray();
+		System.out.println(multiply(array));
+		
+		System.out.println("O maior elemento é: "+max(array));
+		
+		String str = "ACBA";
+		
+		String result = str.chars()
+			.map(i -> i-64)
+			.mapToObj(String::valueOf)
+			.collect(Collectors.joining("-", "[", "]"));
+		
+		System.out.println(result);
+	}
+	
+	private static Optional<Integer> get(String name) {
+		return  Optional.ofNullable(PEOPLE.get(name));
+	}
+	
+	private static int multiply(int[] array) {
+		return Arrays.stream(array).reduce((x,y) -> x * y).orElse(0);
+	}
+	
+	private static int max(int[] array) {
+		return Arrays.stream(array).reduce((x,y) -> (x > y) ? x : y).orElse(0);
 	}
 
 }
